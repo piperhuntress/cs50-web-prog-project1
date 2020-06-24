@@ -1,0 +1,42 @@
+{% extends "layout1.html" %}
+
+{% block body %}
+              <div class="d-flex justify-content-center h-100">
+            		<div class="card login">
+            			<div class="card-header text-center">
+                    <h2>JustSayIt!</h2>
+            				<h3>Sign In</h3>
+            			</div>
+            			<div class="card-body">
+                    <div class="flash-msg">
+                    {% if get_flashed_messages() %}
+                            {{ get_flashed_messages() | join(" ") }}
+                    {% endif %}
+                    </div>
+            				<form action="{{ url_for('login') }}" method="post">
+            					<div class="input-group form-group">
+            						<div class="input-group-prepend">
+            							<span class="input-group-text"><i class="fas fa-user"></i></span>
+            						</div>
+            						<input type="text" class="form-control" placeholder="username" name="username">
+
+            					</div>
+            					<div class="input-group form-group">
+            						<div class="input-group-prepend">
+            							<span class="input-group-text"><i class="fas fa-key"></i></span>
+            						</div>
+            						<input type="password" class="form-control" placeholder="password" name="password">
+            					</div>
+            					<div class="form-group">
+            						<input type="submit" value="Login" class="btn float-right login_btn">
+            					</div>
+            				</form>
+            			</div>
+            			<div class="card-footer">
+            				<div class="d-flex justify-content-center links">
+            					Don't have an account?<a href="/register">Sign Up</a>
+            				</div>
+            			</div>
+            		</div>
+            	</div>
+{% endblock %}

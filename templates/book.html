@@ -1,0 +1,77 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    JustSayIt!- Book Review
+{% endblock %}
+
+{% block body %}
+<div class="row">
+  <div class="col-md-6">
+    <img src="/static/img/book.jpeg" class="book-image">
+    <h5> {{ book.title }}</h5>
+    <p>
+      ISBN: {{ book.isbn }}<br>
+      Author: {{ book.author }}<br>
+      Year: {{ book.year }}<br>
+      Reviews Count : {{book_info["books"][0]["reviews_count"]}}<br>
+      Ratings Count : {{book_info["books"][0]["ratings_count"]}}<br>
+      Average Rating : {{book_info["books"][0]["average_rating"]}}</p>
+      <p class="text-muted">Information retrieved from <a href="https://www.goodreads.com/">Goodreads</a> using Goodreads API. </p>
+</div>
+<div class="col-md-4">
+  {% if rev_done == 1 %}
+  <table class="table table-responsive table-hover  w-100 d-block d-md-table">
+      <td>You have submitted a review for this book.</td>
+    {% for user_review in user_reviews %}
+        <tr>
+                <td>Submitted date:{{ user_review.date }} <br>
+                    Rating:
+                    {% for i in range (user_review.rating) %}
+                     <span class="fa fa-star rating-star"></span>
+                    {% endfor %}
+                   <br>
+                    Review : {{ user_review.review_text }} <br>
+                </td>
+        </tr>
+    {% endfor %}
+  </table>
+  {% else %}
+    <h4> Write your review </h4>
+    <form action="{{ url_for('review', isbn=book.isbn) }}" method="post">
+        <textarea class="form-control rounded-0" id="exampleFormControlTextarea2" rows="3" placeholder="Review" name="review_text"></textarea>
+        Rating :<br>
+        <input type ="radio" value = 5 name="rating"> <span class="fa fa-star rating-star"></span><span class="fa fa-star rating-star"></span><span class="fa fa-star rating-star"></span><span class="fa fa-star rating-star"></span><span class="fa fa-star rating-star"></span>
+        <br><input type ="radio" value = 4 name="rating"> <span class="fa fa-star rating-star"></span><span class="fa fa-star rating-star"></span><span class="fa fa-star rating-star"></span><span class="fa fa-star rating-star"></span>
+        <br><input type ="radio" value = 3 name="rating"> <span class="fa fa-star rating-star"></span><span class="fa fa-star rating-star"></span><span class="fa fa-star rating-star"></span>
+        <br><input type ="radio" value = 2 name="rating"> <span class="fa fa-star rating-star"></span><span class="fa fa-star rating-star"></span>
+        <br><input type ="radio" value = 1 name="rating"> <span class="fa fa-star rating-star"></span>
+        <button class="btn btn-info btn-block" type="submit">Submit your review</button>
+    </form>
+    {% endif %}
+</div>
+</div>
+<div class="row">
+  <div class="col-md-12">
+    <h4> Reviews </h4>
+    <table class="table table-responsive table-hover  w-100 d-block d-md-table">
+    {% if results == 0 %}
+        <td>No reviews for this book.</td>
+    {% else %}
+      {% for review in reviews %}
+          <tr>
+                  <td>By: {{ review.username }} <br>
+                      {{ review.date }} <br>
+                      Rating:
+                      {% for i in range (review.rating) %}
+                       <span class="fa fa-star rating-star"></span>
+                      {% endfor %}
+                     <br>
+                      Review : {{ review.review_text }} <br>
+                  </td>
+          </tr>
+      {% endfor %}
+    {% endif %}
+    </table>
+  </div>
+</div>
+{% endblock %}

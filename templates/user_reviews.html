@@ -1,0 +1,33 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    JustSayIt!- Book Review
+{% endblock %}
+
+{% block body %}
+<div class="row">
+  <div class="col-md-12">
+    <h4> Book Reviews </h4>
+    <p class="text-muted">These are your book reviews. You have submitted {{ count }} reviews.</p>
+    <table class="table table-responsive table-hover  w-100 d-block d-md-table">
+    {% if results == 0 %}
+        <td>No reviews for this book.</td>
+    {% else %}
+      {% for user_review in user_reviews %}
+          <tr>
+                  <td><h5>{{ user_review.title }}</h5>
+                      {{ user_review.date.strftime('%Y-%B-%d : %I:%M %p') }}<br>
+                      Rating:
+                      {% for i in range (user_review.rating) %}
+                       <span class="fa fa-star rating-star"></span>
+                      {% endfor %}
+                     <br>
+                      Review : {{ user_review.review_text }} <br>
+                  </td>
+          </tr>
+      {% endfor %}
+    {% endif %}
+    </table>
+  </div>
+</div>
+{% endblock %}

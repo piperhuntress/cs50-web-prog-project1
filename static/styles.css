@@ -1,0 +1,255 @@
+nav .navbar-brand
+{
+    /* size for brand */
+    font-size: xx-large;
+}
+
+/* colors for brand */
+nav .navbar-brand .blue
+{
+    color: #537fbe;
+}
+nav .navbar-brand .red
+{
+    color: #ea433b;
+}
+nav .navbar-brand .yellow
+{
+    color: #f5b82e;
+}
+nav .navbar-brand .green
+{
+    color: #2e944b;
+}
+
+main .form-control
+{
+    /* center form controls */
+    display: inline-block;
+
+    /* override Bootstrap's 100% width for form controls*/
+    width: 50%;
+}
+
+main
+{
+    /* scroll horizontally as needed */
+    overflow-x: auto;
+
+    /* center contents */
+    text-align: center;
+}
+
+main img
+{
+    /* constrain images on small screens */
+    max-width: 100%;
+}
+.status_count
+{
+    color: red;
+}
+@media (max-width: @screen-xs) {
+    body{
+    font-size: 10px;
+    background-color:blue;
+  }
+}
+/* @media only screen and (max-width: 600px) {
+  body {
+    background-color: lightblue;
+  }
+} */
+@media (max-width: @screen-sm) {
+    body{font-size: 12px;}
+}
+.text-responsive {
+  font-size: calc(100% + 1vw + 1vh);
+}
+
+body, html {
+  height: 100%;
+  font-family: 'Roboto', sans-serif;
+  background-color: #FFFFFF;
+  color: ##606468;
+}
+
+.cover {
+  /* The image used */
+  background-image: url(img/cover1.jpg);
+  /* Full height */
+  height: 100%;
+
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+.index_title
+{
+  text-align: center;
+  margin-top: 50px;
+  background-color: gray;
+  height: 60px;
+  color: white;
+}
+
+.container{
+height: 100%;
+align-content: center;
+}
+
+.card{
+height: auto;
+margin-top: 20px;
+margin-bottom: auto;
+width: 400px;
+background-color: rgba(0,0,0,0.5) !important;
+}
+
+.social_icon span{
+font-size: 60px;
+margin-left: 10px;
+color: #FFC312;
+}
+
+.social_icon span:hover{
+color: white;
+cursor: pointer;
+}
+
+.card-header h3, h1{
+color: white;
+}
+
+.social_icon{
+position: absolute;
+right: 20px;
+top: -45px;
+}
+
+.input-group-prepend span{
+width: 50px;
+background-color: #FF1234;
+color: black;
+border:0 !important;
+}
+
+input:focus{
+outline: 0 0 0 0  !important;
+box-shadow: 0 0 0 0 !important;
+
+}
+
+.remember{
+color: white;
+}
+
+.remember input
+{
+width: 20px;
+height: 20px;
+margin-left: 15px;
+margin-right: 5px;
+}
+
+.login_btn{
+color: black;
+background-color: #FFC312;
+width: 100px;
+}
+
+.login_btn:hover{
+color: black;
+background-color: white;
+}
+
+.links{
+color: white;
+}
+
+.links a{
+margin-left: 4px;
+}
+
+.menu
+{
+  background-color: #028090;
+}
+.
+.input-group.input-group-unstyled input.form-control {
+    -webkit-border-radius: 4px;
+       -moz-border-radius: 4px;
+            border-radius: 4px;
+}
+.input-group-unstyled .input-group-addon {
+    border-radius: 4px;
+    border: 0px;
+    background-color: transparent;
+}
+.search
+{
+    padding-top:50px;
+    height: 100%;
+}
+.book-title
+{
+  color: yellow;
+}
+.main-content
+{
+  padding-top:50px;
+}
+.book-image
+{
+  width: 300px;
+  height: 300px;
+  margin-bottom: 30px;
+}
+.book-details
+{
+  color:#f5deb3;
+}
+.rating-star
+{
+  color: yellow;
+}
+h4
+{
+  color:#05668D;
+}
+h5
+{
+  color:#00A896;
+}
+h6
+{
+  color:#02C39A;
+}
+footer {
+  background-color: #e3eae8;
+  height: 200px;
+  padding-top: 20px;
+  margin-top: 30px;
+  position: absolute;
+  bottom: 0;
+  width: auto;
+}
+.main-container {
+ min-height: 100vh; /* will cover the 100% of viewport */
+ position: relative;
+ padding-bottom: 200px; /* height of your footer */
+}
+.flash-msg
+{
+  color:#02C39A;
+  padding: 10px;
+}
+.app-title
+{
+  color:#05668D;
+}
+h2{
+  color:#02C39A;
+}

@@ -1,0 +1,30 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    JustSayIt!- Book Review
+{% endblock %}
+
+{% block body %}
+      <h4 class="text-center"> LIST OF BOOKS </h4>
+      {% if results == 0 %}
+        <h5 class="text-center">No results found.</h5>
+      {% else %}
+        <h5 class="text-center">Search returned {{ results }} books.</h5>
+      {% endif %}
+      <table class="table table-responsive table-hover  w-100 d-block d-md-table">
+        <tr>
+            <th>ISBN</th>
+            <th>TITLE</th>
+            <th>AUTHOR</th>
+            <th>YEAR</th>
+        </tr>
+      {% for book in books %}
+          <tr>
+                  <td><a href="{{ url_for('book_details', isbn=book.isbn) }}">{{ book.isbn }}</a></td>
+                  <td>{{ book.title }}</td>
+                  <td>{{ book.author }}</td>
+                  <td>{{ book.year }}</td>
+          </tr>
+      {% endfor %}
+      </table>
+{% endblock %}
