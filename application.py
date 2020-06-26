@@ -104,7 +104,7 @@ def books():
 def book_details(isbn):
     result = requests.get("https://www.goodreads.com/book/review_counts.json", params={"key": KEY, "isbns": isbn}).json()
     book = db.execute("SELECT * FROM books WHERE isbn LIKE :isbn", {"isbn": f"%{isbn}%"}).fetchone()
-    reviews = db.execute("SELECT * FROM reviews WHERE isbn = :isbn ORDER BY isbn", {"isbn": isbn}).fetchall()
+    reviews = db.execute("SELECT * FROM reviews WHERE isbn = :isbn ORDER BY date DESC", {"isbn": isbn}).fetchall()
     results = len(reviews)
     user_reviews = db.execute("SELECT * from reviews WHERE username = :username and isbn = :isbn", {"username": session["username"], "isbn": isbn}).fetchall()
     rev_done = len(user_reviews)
@@ -116,10 +116,30 @@ def register():
 
     # Get form information.
     if request.method == "POST":
+
+        if not request.form.get("username"):
+            flash("Must provide username.")
+            return redirect("/register")
+
+        if not request.form.get("password"):
+            flash("Must provide password.")
+            return redirect("/register")
+
+        if not request.form.get("email"):
+            flash("Must provide email")
+            return redirect("/register")
+
+        if not request.form.get("name"):
+            flash("Must provide name")
+            return redirect("/register")
+
         username = request.form.get("username")
         hashed = generate_password_hash(request.form.get("password"))
         email = request.form.get("email")
         name = request.form.get("name")
+        if request.form.get("password") != request.form.get("confirm_p"):
+            flash("Password don't match")
+            return redirect("/register")
 
         # Insert to DB
         db.execute("INSERT INTO users (username, password, email, name) VALUES (:username, :password, :email, :name)",

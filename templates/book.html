@@ -60,7 +60,7 @@
       {% for review in reviews %}
           <tr>
                   <td>By: {{ review.username }} <br>
-                      {{ review.date }} <br>
+                      {{ review.date.strftime('%Y-%B-%d : %I:%M %p') }} <br>
                       Rating:
                       {% for i in range (review.rating) %}
                        <span class="fa fa-star rating-star"></span>

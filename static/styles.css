@@ -49,19 +49,9 @@ main img
 {
     color: red;
 }
-@media (max-width: @screen-xs) {
-    body{
-    font-size: 10px;
-    background-color:blue;
-  }
-}
-/* @media only screen and (max-width: 600px) {
-  body {
-    background-color: lightblue;
-  }
-} */
+
 @media (max-width: @screen-sm) {
-    body{font-size: 12px;}
+    body{font-size: 10px;}
 }
 .text-responsive {
   font-size: calc(100% + 1vw + 1vh);
@@ -252,4 +242,10 @@ footer {
 }
 h2{
   color:#02C39A;
+}
+.div-grey
+{
+  background-color: #e3eae8;
+  margin: 0;
+  padding: 20px;
 }

@@ -8,49 +8,46 @@
             				<h3>User Registration</h3>
             			</div>
             			<div class="card-body">
+                    <div class="flash-msg">
+                    {% if get_flashed_messages() %}
+                            {{ get_flashed_messages() | join(" ") }}
+                    {% endif %}
+                    </div>
             				<form action="{{ url_for('register') }}" method="post">
             					<div class="input-group form-group">
             						<div class="input-group-prepend">
             							<span class="input-group-text"><i class="fas fa-user"></i></span>
             						</div>
-            						<input type="text" class="form-control" placeholder="username" name="username">
+            						<input type="text" class="form-control" placeholder="username" name="username" required>
             					</div>
             					<div class="input-group form-group">
             						<div class="input-group-prepend">
             							<span class="input-group-text"><i class="fas fa-key"></i></span>
             						</div>
-            						<input type="password" class="form-control" placeholder="password" name="password">
+            						<input type="password" class="form-control" placeholder="password" name="password" required>
             					</div>
                       <div class="input-group form-group">
                         <div class="input-group-prepend">
                           <span class="input-group-text"><i class="fas fa-key"></i></span>
                         </div>
-                        <input type="password" class="form-control" placeholder="confirm password" name="confirm_p">
+                        <input type="password" class="form-control" placeholder="confirm password" name="confirm_p" required>
                       </div>
                       <div class="input-group form-group">
             						<div class="input-group-prepend">
             							<span class="input-group-text"><i class="fas fa-key"></i></span>
             						</div>
-            						<input type="email" class="form-control" placeholder="email" name="email">
+            						<input type="email" class="form-control" placeholder="email" name="email" required>
             					</div>
                       <div class="input-group form-group">
             						<div class="input-group-prepend">
             							<span class="input-group-text"><i class="fas fa-key"></i></span>
             						</div>
-            						<input type="text" class="form-control" placeholder="name" name="name">
+            						<input type="text" class="form-control" placeholder="name" name="name" required>
             					</div>
             					<div class="form-group">
             						<input type="submit" value="Register" class="btn float-right login_btn">
             					</div>
             				</form>
-            			</div>
-            			<div class="card-footer">
-            				<div class="d-flex justify-content-center links">
-            					Don't have an account?<a href="#">Sign Up</a>
-            				</div>
-            				<div class="d-flex justify-content-center">
-            					<a href="#">Forgot your password?</a>
-            				</div>
             			</div>
             		</div>
             	</div>
