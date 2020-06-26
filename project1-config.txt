@@ -1,7 +1,0 @@
-Project 1 - Config
-
-
-set FLASK_APP=application.py
-set FLASK_DEBUG=1
-set DATABASE_URL=postgres://qrqzllsppwwrvw:0829a06512dbc8f106a9582941c4902d6d09f596219e3579b6940c5e0a0e7b72@ec2-34-202-88-122.compute-1.amazonaws.com:5432/dc5uvk3kv9kcjd
-flask run
